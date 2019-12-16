@@ -1,5 +1,5 @@
 # DeepMM
-Multimodal deep learning package that uses both categorical and text-based features in a single deep architecture for regression and binary classification use cases.
+Multimodal deep learning package based on (keras)[https://github.com/keras-team/keras] and (tensorflow)[https://github.com/tensorflow/tensorflow] that uses both categorical and text-based features in a single deep architecture for regression and binary classification use cases.
 
 This model employs the idea of categorical entitiy embeddings (see [https://arxiv.org/abs/1604.06737]) for mapping highly sparse one-hot encoded categorical features into a latent low-dimensional features space, where similaries between features are properly encoded. The bi-interaction pooling operation (see [https://arxiv.org/abs/1708.05027]) is incorporated to account for second-order feature interactions. An LSTM-based sub-network is used to process the sequential text features.
 
