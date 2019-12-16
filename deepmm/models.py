@@ -29,7 +29,11 @@ def CategoricalEmbeddingLayer(cardinality, embedding_size):
 
 
 def CategoricalSubnetwork(category_cardinality, embedding_size, hidden_layers, dropout_layers=[], use_bi_interaction=False):
-    """Creates an keras functional API model with several different input branches for the categorical variables.
+    """Creates an keras functional API model with several different input branches for the categorical variables. If desired,
+    uses Bi-Interaction Pooling layer to capture seconds order feature interactions between sparse features better.
+    
+    Paper: [ [CoRR 2016] Entity Embeddings of Categorical Variables, Guo and Berkhahn (2016), https://arxiv.org/abs/1604.06737 ]
+    Paper: [ [SIGIR 2017] Neural Factorization Machines for Sparse Predictive Analytics, He et al. (2017), https://arxiv.org/abs/1708.05027 ]
 
     Arguments:
         category_cardinality {list of int} -- The cardinality of each category to be embedded.

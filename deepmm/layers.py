@@ -9,9 +9,7 @@ class BiInteractionPooling(Layer):
     """
     Implementation of the bi-interaction pooling layer to capture second-order interactions between sparse features.
 
-    Paper: [ [SIGIR 2017] Neural Factorization Machines for Sparse Predictive Analytics, He et al. (2017) ]
-
-    Link: https://arxiv.org/abs/1708.05027
+    Paper: [ [SIGIR 2017] Neural Factorization Machines for Sparse Predictive Analytics, He et al. (2017), https://arxiv.org/abs/1708.05027 ]
     """
 
     def __init__(self, output_dim, **kwargs):
