@@ -147,7 +147,7 @@ def DeepMultimodalModel(task, num_unique_categories, cat_embedding_dim, txt_voca
     if task == 'regression':
         final_activation = 'linear'
     elif task == 'binary':
-        final_activation = 'softmax'
+        final_activation = 'sigmoid'
     else:
         raise ValueError('Parameter \'task\' has to be either \'regression\' of \'binary\'.')
 
