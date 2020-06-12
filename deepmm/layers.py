@@ -27,19 +27,19 @@ class BiInteractionPooling(Layer):
 
         assert isinstance(inputs, list)
 
-        # Stack embedding vectors together
+        # Stack embedding vectors
         stacked_embeddings = tf.stack(inputs, axis=1)
 
-        summed_features_emb = tf.reduce_sum(stacked_embeddings, 1)  # None * K
-        # get the element-multiplication
-        summed_features_emb_square = tf.square(summed_features_emb)  # None * K
+        # Reduce sum and square it
+        summed_features_emb = tf.reduce_sum(stacked_embeddings, 1)
+        summed_features_emb_square = tf.square(summed_features_emb)
 
-        # _________ square_sum part _____________
+        # Square sum
         squared_features_emb = tf.square(stacked_embeddings)
-        squared_sum_features_emb = tf.reduce_sum(squared_features_emb, 1)  # None * K
+        squared_sum_features_emb = tf.reduce_sum(squared_features_emb, 1)
 
-        # ________ FM __________
-        output = 0.5 * tf.subtract(summed_features_emb_square, squared_sum_features_emb)  # None * K
+        # Factorization machine
+        output = 0.5 * tf.subtract(summed_features_emb_square, squared_sum_features_emb)
 
         return output
 
