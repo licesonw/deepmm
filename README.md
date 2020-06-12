@@ -17,4 +17,20 @@ General outline of the multimodal model architecture (with concatenation of cate
 
 
 ## Usage
-The package exposes the architecture as a `keras.models.Model` object based on Keras' functional API.
+The package exposes the architecture as a `keras.models.Model` object based on Keras' functional API. It supports the integration of pre-trained word embedding vectors.
+
+```
+from deepmm.models import DeepMultimodalModel
+
+# Preprocess data and combine modalities into a single matrix
+# ...
+
+model = DeepMultimodalModel(task='regression', num_unique_categories=num_unique_categories, cat_embedding_dim=16,
+                            txt_vocab_size=vocabulary_size, txt_embedding_dim=EMBEDDING_DIM, txt_max_len=MAX_LEN,
+                           txt_weights=embedding_matrix,
+                           cat_hidden_neurons=[100,50,10], cat_dropout=[0.1, 0.2, 0.2], cat_bi_interaction=True,
+                           txt_lstm_neurons=32, txt_dropout=0.2, final_hidden_neurons=[64, 32], final_dropout=[0.3, 0.3])
+
+```
+
+
