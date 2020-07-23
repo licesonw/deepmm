@@ -19,7 +19,7 @@ General outline of the multimodal model architecture (with concatenation of cate
 ## Usage
 The package exposes the architecture as a `keras.models.Model` object based on Keras' functional API. It supports the integration of pre-trained word embedding vectors.
 
-```
+```python
 from deepmm.models import DeepMultimodalModel
 
 # Preprocess data and combine modalities into a single matrix
